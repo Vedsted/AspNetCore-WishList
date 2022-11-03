@@ -35,7 +35,7 @@ namespace WishList.Controllers
 
         public IActionResult Delete(int id)
         {
-            var item = _context.Items.Find(id);
+            var item = _context.Items.FirstOrDefault(i => i.Id.Equals(id));
 
             if (item is null)
                 return NotFound();
